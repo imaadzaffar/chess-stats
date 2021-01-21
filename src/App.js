@@ -30,7 +30,7 @@ const App = () => {
     }, [])
 
     return (
-        <div className="App">
+        <div className="container">
             <Header />
             <PlayerLayout items={items} isLoading={isLoading} />
         </div>

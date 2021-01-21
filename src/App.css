@@ -5,7 +5,68 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  background: #A7EFFF;
+}
+
+h1 {
+  color: #4F3BC8;
+  margin: 20px 0;
+}
+
+p {
+  margin-top: 0.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-layout {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.card-player {
+  background-color: #DBF8FF;
+  padding: 20px;
+  margin: 10px;
+  border: 2px #D0EEFF solid;
+  border-radius: 20px;
+}
+
+.circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.circle.online {
+  background-color: #1DBB82;
+}
+
+.circle.offline {
+  background-color: #CF2222;
+}
+
+.card-player .username {
+  display: inline-block;
+  margin-left: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #4F3BC8;
+}
+
+.card-player p {
+  color: #9B92D7;
 }
