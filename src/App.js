@@ -64,7 +64,7 @@ const App = () => {
         <div className="container">
             <Header />
             <Search getUsername={(username) => setUsername(username)} />
-            <UserLayout userItem={userItem} isBlank={isUserBlank} isLoading={isUserLoading} getFriendsData={(u) => fetchFriendsItems(u)} />
+            <UserLayout userItem={userItem} isBlank={isUserBlank} isLoading={isUserLoading} getFriendsData={(username) => fetchFriendsItems(username)} />
             <FriendsLayout friendsItems={friendsItems} isBlank={isFriendsBlank} isLoading={isFriendsLoading} />
         </div>
     )
