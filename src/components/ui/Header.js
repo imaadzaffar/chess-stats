@@ -4,9 +4,9 @@ import { faChess } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
     return (
-        <div>
+        <section>
             <h1><FontAwesomeIcon icon={faChess} /> Chess Stats</h1>
-        </div>
+        </section>
     )
 }
 

@@ -4,16 +4,16 @@ const PlayerCard = ({ item }) => {
     let username = item.username
     let url = item.url
     let online = item.online
+    console.log(JSON.stringify(item))
     let bullet = item['perfs']['bullet']
     let blitz = item['perfs']['blitz']
     let rapid = item['perfs']['rapid']
     let classical = item['perfs']['classical']
-    let onlineClasses = online ? "circle online" : "circle offline"
+    let classesOnline = online ? "circle online" : "circle offline"
 
-    console.log(item)
     return (
         <div className="card-player">
-            <div className={onlineClasses}></div>
+            <div className={classesOnline}></div>
             <a href={url} target="_blank" rel="noopener noreferrer" className="username">{username}</a>
             <p>Bullet: {bullet.rating} | {bullet.games} games</p>
             <p>Blitz: {blitz.rating} | {blitz.games} games</p>

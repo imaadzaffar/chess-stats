@@ -1,51 +1,71 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import Header from './components/Header'
-import Search from './components/Search'
-import PlayerLayout from './components/PlayerLayout'
+import Header from './components/ui/Header'
+import Search from './components/ui/Search'
+import UserLayout from './components/stats/UserLayout'
+import FriendsLayout from './components/stats/FriendsLayout'
 
 const App = () => {
-    const [items, setItems] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
+    const [userItem, setUserItem] = useState()
+    const [friendsItems, setFriendsItems] = useState([])
+    const [isUserBlank, setIsUserBlank] = useState(true)
+    const [isFriendsBlank, setIsFriendsBlank] = useState(true)
+    const [isUserLoading, setIsUserLoading] = useState(false)
+    const [isFriendsLoading, setIsFriendsLoading] = useState(false)
     const [username, setUsername] = useState('')
 
+    axios.defaults.baseURL = 'https://lichess.org/api/'
+    
     useEffect(() => {
-        const fetchItems = async (username) => {
-            setIsLoading(true)
+        const fetchUserItem = async () => {
+            setIsUserBlank(false)
+            setIsFriendsBlank(true)
+            setIsUserLoading(true)
 
-            axios.defaults.baseURL = 'https://lichess.org/api/'
-            const results = await axios.all([axios.get(`/user/${username}`), axios.get(`/user/${username}/following`)])
+            const response = await axios(`/user/${username}`)
 
-            let user_data = results[0].data
-            let friends_response = results[1].data
+            let userData = response.data
+            console.log(userData)
 
-            // Clean data response
-            let string_clean = ''
-            if (typeof friends_response === 'string') {
-                string_clean = "[" + friends_response.replace(/\n/g, ",").slice(0, -1) + "]"
-            } else {
-                string_clean = "[" + JSON.stringify(friends_response) + "]"
-            }
-            
-            let full_data = JSON.parse(string_clean)
-            full_data.unshift(user_data)
-            
-            // console.log(full_data)
-            setItems(full_data)
-            setIsLoading(false)
+            setUserItem(userData)
+            setIsUserLoading(false)
         }
         
         if (username.length > 0) {
-            fetchItems(username)
+            setFriendsItems([])
+            fetchUserItem(username)
         }
     }, [username])
+
+    const fetchFriendsItems = async (username) => {
+        setIsFriendsBlank(false)
+        setIsFriendsLoading(true)
+
+        const response = await axios(`/user/${username}/following`)
+        let data = response.data
+        console.log(data)
+
+        // Clean data response
+        let string_clean = ''
+        if (typeof data === 'string') {
+            string_clean = "[" + data.replace(/\n/g, ",").slice(0, -1) + "]"
+        } else {
+            string_clean = "[" + JSON.stringify(data) + "]"
+        }
+        
+        let friendsData = JSON.parse(string_clean)
+        
+        setFriendsItems(friendsData)
+        setIsFriendsLoading(false)
+    }
 
     return (
         <div className="container">
             <Header />
             <Search getUsername={(username) => setUsername(username)} />
-            <PlayerLayout items={items} isLoading={isLoading} />
+            <UserLayout userItem={userItem} isBlank={isUserBlank} isLoading={isUserLoading} getFriendsData={(u) => fetchFriendsItems(u)} />
+            <FriendsLayout friendsItems={friendsItems} isBlank={isFriendsBlank} isLoading={isFriendsLoading} />
         </div>
     )
 }

@@ -29,7 +29,7 @@ input {
   font-size: 18px;
   padding: 10px;
   background-color: #DBF8FF;
-  color: #9B92D7;
+  color: #4F3BC8;
   outline-style: none;
   border: 2px #D0EEFF solid;
   border-radius: 20px;
@@ -39,11 +39,11 @@ input {
   margin-right: 10px;
 }
 
-.search button {
+button {
   font-size: 18px;
   padding: 10px;
   background-color: #DBF8FF;
-  color: #9B92D7;
+  color: #4F3BC8;
   outline-style: none;
   border: 2px #D0EEFF solid;
   border-radius: 20px;
@@ -95,4 +95,8 @@ input {
 
 .card-player p {
   color: #9B92D7;
+}
+
+.error-text {
+  color: #CF2222;
 }

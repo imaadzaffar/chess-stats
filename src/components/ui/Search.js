@@ -11,7 +11,7 @@ const Search = ({ getUsername }) => {
     }
 
     return (
-        <div className="search">
+        <section className="search">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -22,7 +22,7 @@ const Search = ({ getUsername }) => {
                 />
                 <button type="submit" value="Submit"><FontAwesomeIcon icon={faSearch} /></button>
             </form>
-        </div>
+        </section>
     )
 }
 
