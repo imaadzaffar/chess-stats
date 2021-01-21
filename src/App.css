@@ -29,6 +29,7 @@ input {
   font-size: 18px;
   padding: 10px;
   background-color: #DBF8FF;
+  color: #9B92D7;
   outline-style: none;
   border: 2px #D0EEFF solid;
   border-radius: 20px;
@@ -38,10 +39,11 @@ input {
   margin-right: 10px;
 }
 
-button {
+.search button {
   font-size: 18px;
   padding: 10px;
   background-color: #DBF8FF;
+  color: #9B92D7;
   outline-style: none;
   border: 2px #D0EEFF solid;
   border-radius: 20px;

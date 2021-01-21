@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const Search = ({ getUsername }) => {
     const [text, setText] = useState('')
@@ -18,7 +20,7 @@ const Search = ({ getUsername }) => {
                     onChange={(e) => setText(e.target.value)}
                     autoFocus
                 />
-                <button type="submit" value="Submit">Submit</button>
+                <button type="submit" value="Submit"><FontAwesomeIcon icon={faSearch} /></button>
             </form>
         </div>
     )
