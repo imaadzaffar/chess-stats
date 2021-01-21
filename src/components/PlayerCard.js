@@ -14,7 +14,7 @@ const PlayerCard = ({ item }) => {
     return (
         <div className="card-player">
             <div className={onlineClasses}></div>
-            <a href={url} target="_blank" className="username">{username}</a>
+            <a href={url} target="_blank" rel="noopener noreferrer" className="username">{username}</a>
             <p>Bullet: {bullet.rating} | {bullet.games} games</p>
             <p>Blitz: {blitz.rating} | {blitz.games} games</p>
             <p>Rapid: {rapid.rating} | {rapid.games} games</p>
