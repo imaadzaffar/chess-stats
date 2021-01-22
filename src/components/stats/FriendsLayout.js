@@ -3,8 +3,6 @@ import PlayerCard from './PlayerCard'
 import Loading from '../ui/Loading'
 
 const FriendsLayout = ({ friendsItems, isBlank, isLoading }) => {
-    console.log(friendsItems)
-
     if (isBlank) {
         return null
     }
