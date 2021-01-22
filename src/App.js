@@ -27,21 +27,6 @@ const App = () => {
         return source.current;
     }
     
-    const fetchUserItem = () => {
-        axios.get(`/user/${username}`)
-            .then(response => {
-                let userData = response.data
-                setUserItem(userData)
-            })
-            .catch(error => {
-                console.log(error)
-                setUserItem({})
-            })
-            .then(() => {
-                setIsUserLoading(false)
-            })
-    }
-
     const fetchFriendsItems = (username) => {
         setIsFriendsBlank(false)
         setIsFriendsLoading(true)
@@ -77,6 +62,22 @@ const App = () => {
     }
 
     useEffect(() => {
+        const fetchUserItem = () => {
+            axios.get(`/user/${username}`)
+                .then(response => {
+                    let userData = response.data
+                    setUserItem(userData)
+                })
+                .catch(error => {
+                    console.log(error)
+                    setUserItem({})
+                })
+                .then(() => {
+                    setIsUserLoading(false)
+                })
+        }
+
+
         if (username.length > 0) {
             if (source.current != null) {
                 source.current.cancel()
