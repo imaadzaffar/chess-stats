@@ -5,6 +5,7 @@ import Header from './components/ui/Header'
 import Search from './components/ui/Search'
 import UserLayout from './components/stats/UserLayout'
 import FriendsLayout from './components/stats/FriendsLayout'
+import Bounce from 'react-reveal/Bounce'
 
 const App = () => {
     const [userItem, setUserItem] = useState()
@@ -96,8 +97,10 @@ const App = () => {
 
     return (
         <div className="container">
-            <Header />
-            <Search getUsername={(username) => setUsername(username)} />
+            <Bounce>
+                <Header />
+                <Search getUsername={(username) => setUsername(username)} />
+            </Bounce>
             <UserLayout 
                 userItem={userItem} 
                 isBlank={isUserBlank} 

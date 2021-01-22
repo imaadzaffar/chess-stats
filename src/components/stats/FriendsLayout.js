@@ -1,6 +1,8 @@
 import React from 'react'
 import PlayerCard from './PlayerCard'
 import Loading from '../ui/Loading'
+import Fade from 'react-reveal/Fade'
+import Flip from 'react-reveal/Flip'
 
 const FriendsLayout = ({ friendsItems, isBlank, isLoading }) => {
     if (isBlank) {
@@ -12,10 +14,14 @@ const FriendsLayout = ({ friendsItems, isBlank, isLoading }) => {
         if (friendsItems.length > 0) {
             return (
                 <section>
-                    <h2>Friends Stats</h2>
+                    <Fade>
+                        <h2>Friends Stats</h2>
+                    </Fade>
                     <div className="card-layout">
                         {friendsItems.map(item => (
-                            <PlayerCard item={item} key={item.id} />
+                            <Flip top>
+                                <PlayerCard item={item} key={item.id} />
+                            </Flip>
                         ))}
                     </div>
                 </section>

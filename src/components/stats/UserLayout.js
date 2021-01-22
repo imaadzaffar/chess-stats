@@ -1,6 +1,8 @@
 import React from 'react'
 import PlayerCard from './PlayerCard'
 import Loading from '../ui/Loading'
+import Fade from 'react-reveal/Fade'
+import Flip from 'react-reveal/Flip'
 
 const UserLayout = ({ userItem, isBlank, isLoading, getFriendsData }) => {
     if (isBlank) {
@@ -15,11 +17,17 @@ const UserLayout = ({ userItem, isBlank, isLoading, getFriendsData }) => {
         if (Object.keys(userItem).length > 0) {
             return (
                 <section>
-                    <h2>User Stats</h2>
-                    <div style={{ marginBottom: "10px" }}>
-                        <PlayerCard item={userItem} key={userItem.id} />
-                    </div>
-                    <button onClick={() => getFriendsData(userItem.username)}>Get friends stats</button>
+                    <Fade>
+                        <h2>User Stats</h2>
+                    </Fade>
+                        <div style={{ marginBottom: "10px" }}>
+                            <Flip top>
+                                <PlayerCard item={userItem} key={userItem.id} />
+                            </Flip>
+                        </div>
+                    <Fade>
+                        <button onClick={() => getFriendsData(userItem.username)}>Get friends stats</button>
+                    </Fade>
                 </section>
             )
         } else {
