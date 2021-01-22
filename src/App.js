@@ -45,7 +45,6 @@ const App = () => {
         setIsFriendsBlank(false)
         setIsFriendsLoading(true)
 
-        console.log(`getting friends data for ${username}`)
         axios.get(`/user/${username}/following`, {
             cancelToken: getSource().token
         })
@@ -78,8 +77,6 @@ const App = () => {
 
     useEffect(() => {
         if (username.length > 0) {
-            console.log('running username block')
-
             if (source.current != null) {
                 source.current.cancel()
                 source.current = null
@@ -91,6 +88,9 @@ const App = () => {
             setIsUserLoading(true)
             
             fetchUserItem(username)
+        } else {
+            setIsUserBlank(true)
+            setIsFriendsBlank(true)
         }
     }, [username])
 
