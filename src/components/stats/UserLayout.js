@@ -11,7 +11,10 @@ const UserLayout = ({ userItem, isBlank, isLoading, getFriendsData }) => {
     else if (isLoading) {
         return <Loading />
     } else {
-        if (typeof userItem !== 'undefined') {
+        if (userItem.closed) {
+            return <p className="error-text">Player account closed.</p>
+        }
+        if (Object.keys(userItem).length > 0) {
             return (
                 <section>
                     <h2>User Stats</h2>
@@ -22,7 +25,7 @@ const UserLayout = ({ userItem, isBlank, isLoading, getFriendsData }) => {
                 </section>
             )
         } else {
-            return <p className="error-text">Couldn't find user.</p>
+            return <p className="error-text">Player not found.</p>
         }
     }
 }

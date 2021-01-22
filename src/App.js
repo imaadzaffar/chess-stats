@@ -18,18 +18,25 @@ const App = () => {
     axios.defaults.baseURL = 'https://lichess.org/api/'
     
     useEffect(() => {
-        const fetchUserItem = async () => {
+        const fetchUserItem = () => {
             setIsUserBlank(false)
             setIsFriendsBlank(true)
             setIsUserLoading(true)
 
-            const response = await axios(`/user/${username}`)
-
-            let userData = response.data
-            console.log(userData)
-
-            setUserItem(userData)
-            setIsUserLoading(false)
+            axios.get(`/user/${username}`)
+                .then(response => {
+                    let userData = response.data
+                    console.log(response)
+                    
+                    setUserItem(userData)
+                })
+                .catch(error => {
+                    console.log(error)
+                    setUserItem({})
+                })
+                .then(() => {
+                    setIsUserLoading(false)
+                })
         }
         
         if (username.length > 0) {
@@ -38,26 +45,33 @@ const App = () => {
         }
     }, [username])
 
-    const fetchFriendsItems = async (username) => {
+    const fetchFriendsItems = (username) => {
         setIsFriendsBlank(false)
         setIsFriendsLoading(true)
 
-        const response = await axios(`/user/${username}/following`)
-        let data = response.data
-        console.log(data)
-
-        // Clean data response
-        let string_clean = ''
-        if (typeof data === 'string') {
-            string_clean = "[" + data.replace(/\n/g, ",").slice(0, -1) + "]"
-        } else {
-            string_clean = "[" + JSON.stringify(data) + "]"
-        }
+        axios.get(`/user/${username}/following`)
+            .then(response => {
+                let data = response.data
+                console.log(data)
         
-        let friendsData = JSON.parse(string_clean)
-        
-        setFriendsItems(friendsData)
-        setIsFriendsLoading(false)
+                // Clean data response
+                let string_clean = ''
+                if (typeof data === 'string') {
+                    string_clean = '[' + data.replace(/\n/g, ',').slice(0, -1) + ']'
+                } else {
+                    string_clean = '[' + JSON.stringify(data) + ']'
+                }
+                
+                let friendsData = JSON.parse(string_clean)
+                setFriendsItems(friendsData)
+            })
+            .catch(error => {
+                console.log(error)
+                setFriendsItems([])
+            })
+            .then(() => {
+                setIsFriendsLoading(false)
+            })
     }
 
     return (
