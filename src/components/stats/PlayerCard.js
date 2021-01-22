@@ -2,14 +2,18 @@ import React from 'react'
 
 const PlayerCard = ({ item }) => {
     let username = item.username
+    if (item.title) {
+        username = `[${item.title}] ` + username
+    }
+
     let url = item.url
     let online = item.online
-    console.log(JSON.stringify(item))
+    let classesOnline = online ? "circle online" : "circle offline"
+
     let bullet = item['perfs']['bullet']
     let blitz = item['perfs']['blitz']
     let rapid = item['perfs']['rapid']
     let classical = item['perfs']['classical']
-    let classesOnline = online ? "circle online" : "circle offline"
 
     return (
         <div className="card-player">
