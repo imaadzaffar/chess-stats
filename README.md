@@ -1,8 +1,94 @@
-# Getting Started with Create React App
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+***
+***
+***
+*** To avoid retyping too much info. Do a search and replace for the following:
+*** zafaris, chess-stats, zafaris.dev@gmail.com, Chess Stats, Web app that shows chess stats for players on lichess.org and chess.com
+-->
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/zafaris/chess-stats">
+    <img src="public/android-chrome-512x512.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Chess Stats</h3>
+
+  <p align="center">
+    Web app that shows chess stats for players on lichess.org and chess.com
+    <br />
+    <br />
+    <a href="https://chess-stats.netlify.app/">Live Website</a>
+    ·
+    <a href="https://github.com/zafaris/chess-stats/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/zafaris/chess-stats/issues">Request Feature</a>
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#available-scripts">Available Scripts</a></li>
+        <li><a href="#learn-more">Learn More</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+[![Product Name Screen Shot][product-screenshot]](https://chess-stats.netlify.app/)
+
+### Built With
+
+- [React.js]()
+- [Axios]()
+
+<!-- GETTING STARTED -->
+
+## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -39,32 +125,63 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<!-- USAGE EXAMPLES -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+Just type in a player's name from lichess.org or chess.com into the search bar, and click the search button. It's as simple as that.
+<br />
+[![Demo Image 1][demo-1-image]](https://chess-stats.netlify.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To get this player's friends stats, click on the "Get friends stats" button. (Note: this only works for lichess users)
+<br />
+[![Demo Image 2][demo-2-image]](https://chess-stats.netlify.app/)
 
-### Making a Progressive Web App
+<!-- LICENSE -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
+Distributed under the MIT License. See `LICENSE` for more information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- CONTACT -->
 
-### Deployment
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Imaad Zaffar - [@zafaris_yt](https://www.instagram.com/zafaris_yt)
 
-### `npm run build` fails to minify
+Project Link: [https://github.com/zafaris/chess-stats](https://github.com/zafaris/chess-stats)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- ACKNOWLEDGEMENTS -->
+
+## Acknowledgements
+
+- [Lichess.org API](https://lichess.org/api)
+- [Chess.com API](https://www.chess.com/news/view/published-data-api#pubapi-general-current)
+- [chess-web-api](https://www.npmjs.com/package/chess-web-api)
+- [React Reveal](https://www.react-reveal.com/)
+- [Font Awesome](https://fontawesome.com/)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/zafaris/chess-stats.svg?style=for-the-badge
+[contributors-url]: https://github.com/zafaris/chess-stats/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/zafaris/chess-stats.svg?style=for-the-badge
+[forks-url]: https://github.com/zafaris/chess-stats/network/members
+[stars-shield]: https://img.shields.io/github/stars/zafaris/chess-stats.svg?style=for-the-badge
+[stars-url]: https://github.com/zafaris/chess-stats/stargazers
+[issues-shield]: https://img.shields.io/github/issues/zafaris/chess-stats.svg?style=for-the-badge
+[issues-url]: https://github.com/zafaris/chess-stats/issues
+[license-shield]: https://img.shields.io/github/license/zafaris/chess-stats.svg?style=for-the-badge
+[license-url]: https://github.com/zafaris/chess-stats/blob/master/LICENSE.md
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/imaad-zaffar/
+[product-screenshot]: images/screenshot.png
+[demo-1-image]: images/demo-1.png
+[demo-2-image]: images/demo-2.png
