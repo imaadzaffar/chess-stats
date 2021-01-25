@@ -49,7 +49,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary>Table of Contents</h2></summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -137,11 +137,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 Just type in a player's name from lichess.org or chess.com into the search bar, and click the search button. It's as simple as that.
 <br />
-[![Demo Image 1][demo-1-image]](https://chess-stats.netlify.app/)
+![Demo Image 1][demo-1-image]
 
 To get this player's friends stats, click on the "Get friends stats" button. (Note: this only works for lichess users)
 <br />
-[![Demo Image 2][demo-2-image]](https://chess-stats.netlify.app/)
+![Demo Image 2][demo-2-image]
 
 <!-- LICENSE -->
 
