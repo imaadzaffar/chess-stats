@@ -29,7 +29,7 @@ const UserLayout = ({ userLichessItem, userChessItem, isBlank, isLoading, getFri
         <Fade>
           <h2>User Stats</h2>
         </Fade>
-        <div style={{ marginBottom: '10px' }}>{userCards}</div>
+        <div className="card-layout">{userCards}</div>
         <Fade>
           <button type="button" onClick={getFriendsData}>
             Get friends stats (lichess)
