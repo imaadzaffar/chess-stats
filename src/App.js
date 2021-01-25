@@ -8,7 +8,7 @@ import UserLayout from './components/stats/UserLayout'
 import FriendsLayout from './components/stats/FriendsLayout'
 
 const App = () => {
-  const [userItem, setUserItem] = useState()
+  const [userItems, setUserItems] = useState([])
   const [friendsItems, setFriendsItems] = useState([])
   const [isUserBlank, setIsUserBlank] = useState(true)
   const [isFriendsBlank, setIsFriendsBlank] = useState(true)
@@ -16,6 +16,8 @@ const App = () => {
   const [isFriendsLoading, setIsFriendsLoading] = useState(false)
   const [username, setUsername] = useState('')
 
+  const chessAPI = axios.create({ baseURL: 'https://api.chess.com/pub/' })
+  const lichessAPI = axios.create({ baseURL: 'https://lichess.org/api/' })
   axios.defaults.baseURL = 'https://lichess.org/api/'
   const source = useRef(null)
 
@@ -31,7 +33,7 @@ const App = () => {
     setIsFriendsBlank(false)
     setIsFriendsLoading(true)
 
-    axios(`/user/${username}/following`, {
+    lichessAPI(`/user/${username}/following`, {
       cancelToken: getSource().token,
     })
       .then((response) => {
@@ -62,16 +64,21 @@ const App = () => {
   }
 
   useEffect(() => {
-    const fetchUserItem = () => {
+    const fetchUserItems = () => {
       axios
-        .get(`/user/${username}`)
-        .then((response) => {
-          const userData = response.data
-          setUserItem(userData)
+        .all([lichessAPI(`/user/${username}`), chessAPI(`/player/${username}/stats`)])
+        .then((results) => {
+          const userData = [results[0].data, results[1].data]
+          console.log(userData)
+          setUserItems(userData)
         })
         .catch((error) => {
-          console.log(error)
-          setUserItem({})
+          if (error.response) {
+            console.log(error.response.status)
+            console.log(error.response.data)
+          } else {
+            console.log('Error', error.message)
+          }
         })
         .then(() => {
           setIsUserLoading(false)
@@ -89,7 +96,7 @@ const App = () => {
       setIsFriendsBlank(true)
       setIsUserLoading(true)
 
-      fetchUserItem(username)
+      fetchUserItems(username)
     } else {
       setIsUserBlank(true)
       setIsFriendsBlank(true)
@@ -103,7 +110,7 @@ const App = () => {
         <Search getUsername={(u) => setUsername(u)} />
       </Bounce>
       <UserLayout
-        userItem={userItem}
+        userItems={userItems}
         isBlank={isUserBlank}
         isLoading={isUserLoading}
         getFriendsData={fetchFriendsItems}
