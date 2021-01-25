@@ -10,10 +10,14 @@ body {
   background: #a7efff;
 }
 
+section {
+  margin: 10px;
+}
+
 h1,
 h2 {
   color: #4f3bc8;
-  margin: 20px 0;
+  margin: 20px;
 }
 
 p {
@@ -59,7 +63,6 @@ button {
 .card-layout {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
 }
 
 .card-player {
