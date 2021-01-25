@@ -1,4 +1,5 @@
 import React from 'react'
+import Flip from 'react-reveal/Flip'
 import lichess from '../../img/lichess.png'
 
 const PlayerLichessCard = ({
@@ -17,27 +18,37 @@ const PlayerLichessCard = ({
   const classesOnline = online ? 'circle online' : 'circle offline'
 
   return (
-    <div className="card-player">
-      <div className="card-top">
-        <div className={classesOnline} />
-        <a href={url} target="_blank" rel="noopener noreferrer" className="username">
-          {usernameText}
-        </a>
-        <img src={lichess} alt="Lichess.org icon" className="icon-platform" />
+    <Flip top>
+      <div className="card-player">
+        <div className="card-top">
+          <div className={classesOnline} />
+          <a href={url} target="_blank" rel="noopener noreferrer" className="username">
+            {usernameText}
+          </a>
+          <img src={lichess} alt="Lichess.org icon" className="icon-platform" />
+        </div>
+        {bullet && (
+          <p>
+            Bullet: {bullet.rating} | {bullet.games} games
+          </p>
+        )}
+        {blitz && (
+          <p>
+            Blitz: {blitz.rating} | {blitz.games} games
+          </p>
+        )}
+        {rapid && (
+          <p>
+            Rapid: {rapid.rating} | {rapid.games} games
+          </p>
+        )}
+        {classical && (
+          <p>
+            Daily: {classical.rating} | {classical.games} games
+          </p>
+        )}
       </div>
-      <p>
-        Bullet: {bullet.rating} | {bullet.games} games
-      </p>
-      <p>
-        Blitz: {blitz.rating} | {blitz.games} games
-      </p>
-      <p>
-        Rapid: {rapid.rating} | {rapid.games} games
-      </p>
-      <p>
-        Classic: {classical.rating} | {classical.games} games
-      </p>
-    </div>
+    </Flip>
   )
 }
 

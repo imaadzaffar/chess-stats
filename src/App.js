@@ -8,7 +8,8 @@ import UserLayout from './components/stats/UserLayout'
 import FriendsLayout from './components/stats/FriendsLayout'
 
 const App = () => {
-  const [userItems, setUserItems] = useState([])
+  const [userChessItem, setUserChessItem] = useState()
+  const [userLichessItem, setUserLichessItem] = useState()
   const [friendsItems, setFriendsItems] = useState([])
   const [isUserBlank, setIsUserBlank] = useState(true)
   const [isFriendsBlank, setIsFriendsBlank] = useState(true)
@@ -66,11 +67,18 @@ const App = () => {
   useEffect(() => {
     const fetchUserItems = () => {
       axios
-        .all([lichessAPI(`/user/${username}`), chessAPI(`/player/${username}/stats`)])
+        .all([
+          lichessAPI(`/user/${username}`),
+          chessAPI(`/player/${username}`),
+          chessAPI(`/player/${username}/is-online`),
+          chessAPI(`/player/${username}/stats`),
+        ])
         .then((results) => {
-          const userData = [results[0].data, results[1].data]
+          const userData = results.map((response) => response.data)
           console.log(userData)
-          setUserItems(userData)
+          const [userLichess, ...userChess] = userData
+          setUserLichessItem(userLichess)
+          setUserChessItem(userChess)
         })
         .catch((error) => {
           if (error.response) {
@@ -79,7 +87,6 @@ const App = () => {
           } else {
             console.log('Error', error.message)
           }
-          setUserItems([])
         })
         .then(() => {
           setIsUserLoading(false)
@@ -111,7 +118,8 @@ const App = () => {
         <Search getUsername={(u) => setUsername(u)} />
       </Bounce>
       <UserLayout
-        userItems={userItems}
+        userLichessItem={userLichessItem}
+        userChessItem={userChessItem}
         isBlank={isUserBlank}
         isLoading={isUserLoading}
         getFriendsData={fetchFriendsItems}
