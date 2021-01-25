@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
+import ChessWebAPI from 'chess-web-api'
 import './App.css'
 import Bounce from 'react-reveal/Bounce'
 import Header from './components/ui/Header'
@@ -8,8 +9,8 @@ import UserLayout from './components/stats/UserLayout'
 import FriendsLayout from './components/stats/FriendsLayout'
 
 const App = () => {
-  const [userChessItem, setUserChessItem] = useState()
   const [userLichessItem, setUserLichessItem] = useState()
+  const [userChessItem, setUserChessItem] = useState()
   const [friendsItems, setFriendsItems] = useState([])
   const [isUserBlank, setIsUserBlank] = useState(true)
   const [isFriendsBlank, setIsFriendsBlank] = useState(true)
@@ -17,9 +18,14 @@ const App = () => {
   const [isFriendsLoading, setIsFriendsLoading] = useState(false)
   const [username, setUsername] = useState('')
 
-  const chessAPI = axios.create({ baseURL: 'https://api.chess.com/pub/' })
-  const lichessAPI = axios.create({ baseURL: 'https://lichess.org/api/' })
-  axios.defaults.baseURL = 'https://lichess.org/api/'
+  // const chessAPI = axios.create({
+  //   baseURL: 'https://cors-anywhere.herokuapp.com/https://api.chess.com/pub/',
+  //   headers,
+  // })
+  const chessAPI = new ChessWebAPI()
+  const lichessAPI = axios.create({
+    baseURL: 'https://lichess.org/api/',
+  })
   const source = useRef(null)
 
   const getSource = () => {
@@ -65,27 +71,66 @@ const App = () => {
   }
 
   useEffect(() => {
+    const promises = [lichessAPI(`/user/${username}`), chessAPI.getPlayer(username), chessAPI.getPlayerStats(username)]
+    const promisesResolved = promises.map((promise) => promise.catch((error) => ({ error })))
+    const checkFailed = (then) => (responses) => {
+      const someFailed = responses.some((response) => response.error)
+      if (someFailed) {
+        throw responses
+      }
+      return then(responses)
+    }
+
     const fetchUserItems = () => {
       axios
-        .all([
-          lichessAPI(`/user/${username}`),
-          chessAPI(`/player/${username}`),
-          chessAPI(`/player/${username}/is-online`),
-          chessAPI(`/player/${username}/stats`),
-        ])
-        .then((results) => {
-          const userData = results.map((response) => response.data)
-          console.log(userData)
-          const [userLichess, ...userChess] = userData
-          setUserLichessItem(userLichess)
-          setUserChessItem(userChess)
-        })
+        .all(promisesResolved)
+        .then(
+          checkFailed((results) => {
+            console.log('SUCCESS', results)
+
+            const userData = results.map((response) => {
+              if (response.data) return response.data
+              return response.body
+            })
+            const [userLichess, ...[userProfile, userStats]] = userData
+
+            setUserLichessItem(userLichess)
+
+            if (userProfile && userStats) {
+              const userChess = { ...userProfile, stats: { ...userStats } }
+              setUserChessItem(userChess)
+            } else {
+              setUserChessItem()
+            }
+          })
+        )
         .catch((error) => {
-          if (error.response) {
-            console.log(error.response.status)
-            console.log(error.response.data)
+          console.log('FAIL', error)
+
+          const errorResponse = error.map((e) => {
+            if (e.data) {
+              return e.data
+            }
+            if (e.body) {
+              return e.body
+            }
+            console.log('Error', e.error)
+            return e.message
+          })
+
+          const [userLichess, ...[userProfile, userStats]] = errorResponse
+
+          if (userLichess) {
+            setUserLichessItem(userLichess)
           } else {
-            console.log('Error', error.message)
+            setUserLichessItem()
+          }
+
+          if (userProfile && userStats) {
+            const userChess = { ...userProfile, stats: { ...userStats } }
+            setUserChessItem(userChess)
+          } else {
+            setUserChessItem()
           }
         })
         .then(() => {

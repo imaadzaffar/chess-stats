@@ -11,31 +11,32 @@ const UserLayout = ({ userLichessItem, userChessItem, isBlank, isLoading, getFri
   if (isLoading) {
     return <Loading />
   }
-  const userCards = [userLichessItem, userChessItem].map((userItem, index) => {
-    if (index === 0) {
-      return <PlayerLichessCard item={userItem} />
-    }
-    return <PlayerChessCard item={userItem} />
-  })
-  if (userLichessItem || userChessItem) {
-    if (Object.keys(userLichessItem).length > 0) {
-      if (userLichessItem.closed) {
-        return <p className="error-text">Player account closed.</p>
+  const userCards = [userLichessItem, userChessItem].reduce((result, userItem, index) => {
+    if (userItem) {
+      if (index === 0) {
+        if (!userItem.closed) {
+          result.push(<PlayerLichessCard item={userItem} />)
+        }
+      } else {
+        result.push(<PlayerChessCard item={userItem} />)
       }
-      return (
-        <section>
-          <Fade>
-            <h2>User Stats</h2>
-          </Fade>
-          <div style={{ marginBottom: '10px' }}>{userCards}</div>
-          <Fade>
-            <button type="button" onClick={getFriendsData}>
-              Get friends stats (lichess)
-            </button>
-          </Fade>
-        </section>
-      )
     }
+    return result
+  }, [])
+  if (userCards.length > 0) {
+    return (
+      <section>
+        <Fade>
+          <h2>User Stats</h2>
+        </Fade>
+        <div style={{ marginBottom: '10px' }}>{userCards}</div>
+        <Fade>
+          <button type="button" onClick={getFriendsData}>
+            Get friends stats (lichess)
+          </button>
+        </Fade>
+      </section>
+    )
   }
   return <p className="error-text">Player not found.</p>
 }

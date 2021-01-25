@@ -2,16 +2,20 @@ import React from 'react'
 import Flip from 'react-reveal/Flip'
 import chess from '../../img/chess.png'
 
-const PlayerChessCard = ({ item }) => {
-  const [profile, isOnline, stats] = item
-  const { username, title, url } = profile
-  const { chess_daily: daily, chess_bullet: bullet, chess_blitz: blitz, chess_rapid: rapid } = stats
-
+const PlayerChessCard = ({
+  item: {
+    username,
+    title,
+    url,
+    stats: { chess_daily: daily, chess_bullet: bullet, chess_blitz: blitz, chess_rapid: rapid },
+  },
+}) => {
   let usernameText = username
   if (title) {
     usernameText = `[${title}] ${username}`
   }
-  const { online } = isOnline
+  // const { online } = isOnline
+  const online = false
   const classesOnline = online ? 'circle online' : 'circle offline'
 
   return (
