@@ -100,10 +100,13 @@ button {
   color: #4f3bc8;
 }
 
+.card-player .icon-wrap {
+  margin-left: auto;
+}
+
 .card-player .icon-platform {
   width: 24px;
   height: 24px;
-  margin-left: auto;
 }
 
 .card-player p {

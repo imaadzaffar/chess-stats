@@ -22,10 +22,10 @@ const PlayerLichessCard = ({
       <div className="card-player">
         <div className="card-top">
           <div className={classesOnline} />
-          <a href={url} target="_blank" rel="noopener noreferrer" className="username">
-            {usernameText}
+          <h3 className="username">{usernameText}</h3>
+          <a href={url} target="_blank" rel="noopener noreferrer" className="icon-wrap">
+            <img src={lichess} alt="Lichess.org icon" className="icon-platform" />
           </a>
-          <img src={lichess} alt="Lichess.org icon" className="icon-platform" />
         </div>
         {bullet && (
           <p>
