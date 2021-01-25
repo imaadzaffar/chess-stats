@@ -46,10 +46,10 @@ input {
 button {
   font-size: 18px;
   padding: 10px;
-  background-color: #dbf8ff;
-  color: #4f3bc8;
+  background-color: #4f3bc8;
+  color: white;
   outline-style: none;
-  border: 2px #d0eeff solid;
+  border: 2px #9b92d7 solid;
   border-radius: 20px;
   cursor: pointer;
 }
