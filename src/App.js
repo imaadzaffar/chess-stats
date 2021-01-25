@@ -79,6 +79,7 @@ const App = () => {
           } else {
             console.log('Error', error.message)
           }
+          setUserItems([])
         })
         .then(() => {
           setIsUserLoading(false)

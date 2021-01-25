@@ -63,11 +63,18 @@ button {
 }
 
 .card-player {
+  width: 300px;
   background-color: #dbf8ff;
   padding: 20px;
   margin: 10px;
   border: 2px #d0eeff solid;
   border-radius: 20px;
+}
+
+.card-player .card-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .circle {
@@ -91,6 +98,12 @@ button {
   font-weight: bold;
   font-size: 18px;
   color: #4f3bc8;
+}
+
+.card-player .icon-platform {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
 }
 
 .card-player p {

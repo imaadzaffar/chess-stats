@@ -2,7 +2,7 @@ import React from 'react'
 import Fade from 'react-reveal/Fade'
 import Flip from 'react-reveal/Flip'
 import Loading from '../ui/Loading'
-import PlayerCard from './PlayerCard'
+import PlayerLichessCard from './PlayerLichessCard'
 
 const FriendsLayout = ({ friendsItems, isBlank, isLoading }) => {
   if (isBlank) {
@@ -20,7 +20,7 @@ const FriendsLayout = ({ friendsItems, isBlank, isLoading }) => {
         <div className="card-layout">
           {friendsItems.map((item) => (
             <Flip top>
-              <PlayerCard item={item} key={item.id} />
+              <PlayerLichessCard item={item} key={item.id} />
             </Flip>
           ))}
         </div>

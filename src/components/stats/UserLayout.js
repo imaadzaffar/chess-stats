@@ -1,7 +1,8 @@
 import React from 'react'
 import Fade from 'react-reveal/Fade'
 import Flip from 'react-reveal/Flip'
-import PlayerCard from './PlayerCard'
+import PlayerLichessCard from './PlayerLichessCard'
+import PlayerChessCard from './PlayerChessCard'
 import Loading from '../ui/Loading'
 
 const UserLayout = ({ userItems, userItems: [userLichess, userChess], isBlank, isLoading, getFriendsData }) => {
@@ -11,9 +12,24 @@ const UserLayout = ({ userItems, userItems: [userLichess, userChess], isBlank, i
   if (isLoading) {
     return <Loading />
   }
-  if (userItems.length > 0) {
+  const userCards = []
+  if (userLichess) {
     console.log(userLichess)
+    userCards.push(
+      <Flip top>
+        <PlayerLichessCard item={userLichess} />
+      </Flip>
+    )
+  }
+  if (userChess) {
     console.log(userChess)
+    userCards.push(
+      <Flip top>
+        <PlayerChessCard item={userChess} />
+      </Flip>
+    )
+  }
+  if (userItems.length > 0) {
     if (Object.keys(userLichess).length > 0) {
       if (userLichess.closed) {
         return <p className="error-text">Player account closed.</p>
@@ -23,14 +39,10 @@ const UserLayout = ({ userItems, userItems: [userLichess, userChess], isBlank, i
           <Fade>
             <h2>User Stats</h2>
           </Fade>
-          <div style={{ marginBottom: '10px' }}>
-            <Flip top>
-              <PlayerCard item={userLichess} />
-            </Flip>
-          </div>
+          <div style={{ marginBottom: '10px' }}>{userCards}</div>
           <Fade>
             <button type="button" onClick={getFriendsData}>
-              Get friends stats
+              Get friends stats (lichess)
             </button>
           </Fade>
         </section>

@@ -1,6 +1,7 @@
 import React from 'react'
+import lichess from '../../img/lichess.png'
 
-const PlayerCard = ({
+const PlayerLichessCard = ({
   item: {
     username,
     title,
@@ -17,10 +18,13 @@ const PlayerCard = ({
 
   return (
     <div className="card-player">
-      <div className={classesOnline} />
-      <a href={url} target="_blank" rel="noopener noreferrer" className="username">
-        {usernameText}
-      </a>
+      <div className="card-top">
+        <div className={classesOnline} />
+        <a href={url} target="_blank" rel="noopener noreferrer" className="username">
+          {usernameText}
+        </a>
+        <img src={lichess} alt="Lichess.org icon" className="icon-platform" />
+      </div>
       <p>
         Bullet: {bullet.rating} | {bullet.games} games
       </p>
@@ -37,4 +41,4 @@ const PlayerCard = ({
   )
 }
 
-export default PlayerCard
+export default PlayerLichessCard
