@@ -24,10 +24,26 @@ const PlayerChessCard = ({ item }) => {
           </a>
           <img src={chess} alt="Chess.com icon" className="icon-platform" />
         </div>
-        {bullet && <p>Bullet: {bullet.last.rating}</p>}
-        {blitz && <p>Blitz: {blitz.last.rating}</p>}
-        {rapid && <p>Rapid: {rapid.last.rating}</p>}
-        {daily && <p>Daily: {daily.last.rating}</p>}
+        {bullet && (
+          <p>
+            Bullet: {bullet.last.rating} | {bullet.record.win + bullet.record.loss + bullet.record.draw} games
+          </p>
+        )}
+        {blitz && (
+          <p>
+            Blitz: {blitz.last.rating} | {blitz.record.win + blitz.record.loss + blitz.record.draw} games
+          </p>
+        )}
+        {rapid && (
+          <p>
+            Rapid: {rapid.last.rating} | {rapid.record.win + rapid.record.loss + rapid.record.draw} games
+          </p>
+        )}
+        {daily && (
+          <p>
+            Daily: {daily.last.rating} | {daily.record.win + daily.record.loss + daily.record.draw} games
+          </p>
+        )}
       </div>
     </Flip>
   )
