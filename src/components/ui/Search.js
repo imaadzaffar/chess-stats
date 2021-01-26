@@ -11,14 +11,14 @@ const Search = ({ getUsername }) => {
   }
 
   return (
-    <div className="search">
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      <div className="search">
         <input type="text" placeholder="Search for player" value={text} onChange={(e) => setText(e.target.value)} />
-        <button type="submit" value="Submit">
+        <button type="submit" value="Submit" className="button-search">
           <FontAwesomeIcon icon={faSearch} />
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   )
 }
 

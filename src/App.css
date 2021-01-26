@@ -37,8 +37,12 @@ a:active {
   text-decoration: none;
 }
 
+.search {
+  display: flex;
+  flex-direction: row;
+}
+
 input {
-  width: 300px;
   font-size: 18px;
   padding: 10px;
   background-color: #dbf8ff;
@@ -49,7 +53,8 @@ input {
 }
 
 .search input {
-  margin: 20px;
+  flex: 1 0 auto;
+  margin-right: 10px;
 }
 
 button {
@@ -59,8 +64,12 @@ button {
   color: white;
   outline-style: none;
   border: 2px #9b92d7 solid;
-  border-radius: 20px;
+  border-radius: 30px;
   cursor: pointer;
+}
+
+.button-search {
+  flex: 0 0 46px;
 }
 
 .button-friends {
@@ -133,39 +142,48 @@ button {
   color: #cf2222;
 }
 
-@media (min-width: 320px) {
-  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+.developer-plug {
+  margin-bottom: 20px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .search {
+    min-width: 400px;
+  }
+
+  .card-layout {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .card-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .search {
+    min-width: 500px;
+  }
+
+  .card-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
   .card-layout {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (min-width: 480px) {
-  /* smartphones, Android phones, landscape iPhone */
-  .card-layout {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-@media (min-width: 600px) {
-  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-  .card-layout {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-@media (min-width: 801px) {
-  /* tablet, landscape iPad, lo-res laptops ands desktops */
-  .card-layout {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 1025px) {
-  /* big landscape tablets, laptops, and desktops */
-  .card-layout {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (min-width: 1281px) {
-  /* hi-res laptops and desktops */
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
   .card-layout {
     grid-template-columns: repeat(4, 1fr);
   }
