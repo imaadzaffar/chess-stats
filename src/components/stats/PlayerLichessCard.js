@@ -1,5 +1,6 @@
 import React from 'react'
 import Flip from 'react-reveal/Flip'
+import classNames from 'classnames'
 import lichess from '../../img/lichess.png'
 
 const PlayerLichessCard = ({
@@ -15,13 +16,13 @@ const PlayerLichessCard = ({
   if (title) {
     usernameText = `[${title}] ${username}`
   }
-  const classesOnline = online ? 'circle online' : 'circle offline'
+  const onlineClass = classNames('icon-online', { online })
 
   return (
     <Flip top>
       <div className="card-player">
         <div className="card-top">
-          <div className={classesOnline} />
+          <div className={onlineClass} />
           <h3 className="username">{usernameText}</h3>
           <a href={url} target="_blank" rel="noopener noreferrer" className="icon-wrap">
             <img src={lichess} alt="Lichess.org icon" className="icon-platform" />

@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.6.2",
     "axios": "^0.21.1",
     "chess-web-api": "^1.0.17",
+    "classnames": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-reveal": "^1.2.2",

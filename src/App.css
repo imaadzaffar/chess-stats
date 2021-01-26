@@ -102,19 +102,16 @@ button {
   align-items: center;
 }
 
-.circle {
+.icon-online {
   height: 20px;
   width: 20px;
   border-radius: 50%;
   display: inline-block;
-}
-
-.circle.online {
-  background-color: #1dbb82;
-}
-
-.circle.offline {
   background-color: #cf2222;
+}
+
+.icon-online.online {
+  background-color: #1dbb82;
 }
 
 .card-player .username {

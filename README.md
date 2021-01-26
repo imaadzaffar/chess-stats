@@ -165,6 +165,7 @@ Project Link: [https://github.com/zafaris/chess-stats](https://github.com/zafari
 - [Chess.com API](https://www.chess.com/news/view/published-data-api#pubapi-general-current)
 - [chess-web-api](https://www.npmjs.com/package/chess-web-api)
 - [React Reveal](https://www.react-reveal.com/)
+- [Classnames](https://www.npmjs.com/package/classnames)
 - [Font Awesome](https://fontawesome.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
