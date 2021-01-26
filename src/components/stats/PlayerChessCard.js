@@ -8,12 +8,11 @@ const PlayerChessCard = ({
     username,
     title,
     url,
+    online = false,
     stats: { chess_daily: daily, chess_bullet: bullet, chess_blitz: blitz, chess_rapid: rapid },
   },
 }) => {
   const usernameText = title ? `[${title}] ${username}` : username
-  // const { online } = isOnline
-  const online = false
   const onlineClass = classNames('icon-online', { online })
 
   return (

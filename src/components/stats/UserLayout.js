@@ -19,6 +19,7 @@ const UserLayout = ({ userLichessItem, userChessItem, isBlank, isLoading, getFri
         }
       } else {
         result.push(<PlayerChessCard item={userItem} />)
+        console.log(userItem)
       }
     }
     return result

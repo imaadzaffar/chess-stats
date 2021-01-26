@@ -18,10 +18,6 @@ const App = () => {
   const [isFriendsLoading, setIsFriendsLoading] = useState(false)
   const [username, setUsername] = useState('')
 
-  // const chessAPI = axios.create({
-  //   baseURL: 'https://cors-anywhere.herokuapp.com/https://api.chess.com/pub/',
-  //   headers,
-  // })
   const chessAPI = new ChessWebAPI()
   const lichessAPI = axios.create({
     baseURL: 'https://lichess.org/api/',
@@ -71,7 +67,12 @@ const App = () => {
   }
 
   useEffect(() => {
-    const promises = [lichessAPI(`/user/${username}`), chessAPI.getPlayer(username), chessAPI.getPlayerStats(username)]
+    const promises = [
+      lichessAPI(`/user/${username}`),
+      chessAPI.getPlayer(username),
+      chessAPI.getPlayerOnline(username),
+      chessAPI.getPlayerStats(username),
+    ]
     const promisesResolved = promises.map((promise) => promise.catch((error) => ({ error })))
     const checkFailed = (then) => (responses) => {
       const someFailed = responses.some((response) => response.error)
@@ -92,12 +93,12 @@ const App = () => {
               if (response.data) return response.data
               return response.body
             })
-            const [userLichess, ...[userProfile, userStats]] = userData
+            const [userLichess, ...[chessProfile, chessOnline, chessStats]] = userData
 
             setUserLichessItem(userLichess)
 
-            if (userProfile && userStats) {
-              const userChess = { ...userProfile, stats: { ...userStats } }
+            if (chessProfile && chessStats) {
+              const userChess = { ...chessProfile, ...chessOnline, stats: { ...chessStats } }
               setUserChessItem(userChess)
             } else {
               setUserChessItem()
@@ -118,7 +119,7 @@ const App = () => {
             return e.message
           })
 
-          const [userLichess, ...[userProfile, userStats]] = errorResponse
+          const [userLichess, ...[chessProfile, chessOnline, chessStats]] = errorResponse
 
           if (userLichess) {
             setUserLichessItem(userLichess)
@@ -126,8 +127,8 @@ const App = () => {
             setUserLichessItem()
           }
 
-          if (userProfile && userStats) {
-            const userChess = { ...userProfile, stats: { ...userStats } }
+          if (chessProfile && chessStats) {
+            const userChess = { ...chessProfile, ...chessOnline, stats: { ...chessStats } }
             setUserChessItem(userChess)
           } else {
             setUserChessItem()
