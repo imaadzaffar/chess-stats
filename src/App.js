@@ -158,10 +158,12 @@ const App = () => {
 
   return (
     <div className="container">
-      <Bounce>
-        <Header />
-        <Search getUsername={(u) => setUsername(u)} />
-      </Bounce>
+      <div className="section">
+        <Bounce>
+          <Header />
+          <Search getUsername={(u) => setUsername(u)} />
+        </Bounce>
+      </div>
       <UserLayout
         userLichessItem={userLichessItem}
         userChessItem={userChessItem}

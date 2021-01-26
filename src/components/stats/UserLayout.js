@@ -25,17 +25,17 @@ const UserLayout = ({ userLichessItem, userChessItem, isBlank, isLoading, getFri
   }, [])
   if (userCards.length > 0) {
     return (
-      <section>
+      <div className="section">
         <Fade>
           <h2>User Stats</h2>
         </Fade>
         <div className="card-layout">{userCards}</div>
         <Fade>
-          <button type="button" onClick={getFriendsData}>
+          <button type="button" onClick={getFriendsData} className="button-friends">
             Get friends stats (lichess)
           </button>
         </Fade>
-      </section>
+      </div>
     )
   }
   return <p className="error-text">Player not found.</p>

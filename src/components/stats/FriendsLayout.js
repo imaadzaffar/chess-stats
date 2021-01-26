@@ -13,7 +13,7 @@ const FriendsLayout = ({ friendsItems, isBlank, isLoading }) => {
   }
   if (friendsItems.length > 0) {
     return (
-      <section>
+      <div className="section">
         <Fade>
           <h2>Friends Stats</h2>
         </Fade>
@@ -24,7 +24,7 @@ const FriendsLayout = ({ friendsItems, isBlank, isLoading }) => {
             </Flip>
           ))}
         </div>
-      </section>
+      </div>
     )
   }
   return <p className="error-text">No friends found :(</p>
