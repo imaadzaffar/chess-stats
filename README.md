@@ -183,6 +183,6 @@ Project Link: [https://github.com/zafaris/chess-stats](https://github.com/zafari
 [license-url]: https://github.com/zafaris/chess-stats/blob/master/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/imaad-zaffar/
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/product-screenshot.png
 [demo-1-image]: images/demo-1.png
 [demo-2-image]: images/demo-2.png
