@@ -7,7 +7,9 @@
 ***
 ***
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** zafaris, chess-stats, zafaris.dev@gmail.com, Chess Stats, Web app that shows chess stats for players on lichess.org and chess.com
+*** chess-stats
+*** Chess Stats
+*** Web app that shows chess stats for players on lichess.org and chess.com
 -->
 
 <!-- PROJECT SHIELDS -->
@@ -19,11 +21,10 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![Website][website-shield]][website-url]
+[![YouTube][youtube-shield]][youtube-url]
+[![Instagram][instagram-shield]][instagram-url]
+[![Twitter][twitter-shield]][twitter-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
@@ -75,7 +76,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://chess-stats.netlify.app/)
+[![Product Name Screen Shot][product-screenshot]][live-website]
 
 ### Built With
 
@@ -153,7 +154,18 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 ## Contact
 
-Imaad Zaffar - [@zafaris_yt](https://www.instagram.com/zafaris_yt)
+Imaad Zaffar
+·
+[YouTube][youtube-url]
+·
+[Instagram][instagram-url]
+·
+[Twitter][twitter-url]
+·
+[LinkedIn][linkedin-url]
+·
+[Email](mailto:zafaris.dev@gmail.com)
+
 
 Project Link: [https://github.com/zafaris/chess-stats](https://github.com/zafaris/chess-stats)
 
@@ -171,6 +183,11 @@ Project Link: [https://github.com/zafaris/chess-stats](https://github.com/zafari
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
+[live-website]: https://chess-stats.netlify.app/
+[product-screenshot]: images/product-screenshot.png
+[demo-1-image]: images/demo-1.png
+[demo-2-image]: images/demo-2.png
+
 [contributors-shield]: https://img.shields.io/github/contributors/zafaris/chess-stats.svg?style=for-the-badge
 [contributors-url]: https://github.com/zafaris/chess-stats/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/zafaris/chess-stats.svg?style=for-the-badge
@@ -181,8 +198,14 @@ Project Link: [https://github.com/zafaris/chess-stats](https://github.com/zafari
 [issues-url]: https://github.com/zafaris/chess-stats/issues
 [license-shield]: https://img.shields.io/github/license/zafaris/chess-stats.svg?style=for-the-badge
 [license-url]: https://github.com/zafaris/chess-stats/blob/master/LICENSE.md
+
+[website-shield]: https://img.shields.io/website?label=iszaffar.com&style=for-the-badge&url=https%3A%2F%2Fiszaffar.com
+[website-url]: https://iszaffar.com
+[youtube-shield]: https://img.shields.io/badge/-YouTube-red?&style=for-the-badge&logo=youtube&logoColor=white
+[youtube-url]: https://www.youtube.com/channel/UCRGp4IcgPuOIJ9aIYCh2VAA
+[instagram-shield]: https://img.shields.io/badge/-Instagram-purple?&style=for-the-badge&logo=instagram&logoColor=white
+[instagram-url]: https://www.instagram.com/zafaris_yt
+[twitter-shield]: https://img.shields.io/badge/-Twitter-blue?&style=for-the-badge&logo=youtube&logoColor=white
+[twitter-url]: https://twitter.com/zafaris_yt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/imaad-zaffar/
-[product-screenshot]: images/product-screenshot.png
-[demo-1-image]: images/demo-1.png
-[demo-2-image]: images/demo-2.png
+[linkedin-url]: https://linkedin.com/in/imaad-zaffar
